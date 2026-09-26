@@ -30,9 +30,12 @@ button,a{outline-offset:2px}
 /* ---------- deck ---------- */
 .deck{position:fixed;inset:0}
 .slide{
-  position:absolute;inset:0;display:none;flex-direction:column;justify-content:center;
-  padding:56px 48px 96px;max-width:1280px;margin:0 auto;
+  position:absolute;inset:0;display:none;flex-direction:column;justify-content:flex-start;
+  padding:56px 48px 96px;max-width:1280px;margin:0 auto;overflow-y:auto;scrollbar-width:none;
 }
+.slide::-webkit-scrollbar{display:none}
+.slide > :first-child{margin-top:auto}
+.slide > :nth-last-child(2){margin-bottom:auto}
 .slide.active{display:flex}
 .slide.active .anim{animation:rise .5s cubic-bezier(.2,.7,.3,1) both;animation-delay:calc(var(--i,0)*90ms + 120ms)}
 @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
@@ -205,6 +208,37 @@ td .soft{color:var(--ink-3)}
 .closing{display:flex;flex-direction:column;align-items:center;text-align:center;gap:30px}
 .closing .links{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
 .closing .links a{font-family:var(--font-mono);font-size:14px;padding:9px 18px;border:1.5px solid var(--line);border-radius:999px;text-decoration:none;color:var(--guard);background:var(--sheet)}
+@media (max-height:840px){
+  .slide{padding:36px 44px 88px}
+  h2{font-size:clamp(22px,3vw,32px)}
+  .lede{margin-top:10px;font-size:clamp(15px,1.4vw,18px)}
+  .cols3,.acts,.grid2{margin-top:20px;gap:16px}
+  .card{padding:18px 16px}
+  .card h3{font-size:19px}
+  .card p{font-size:13.5px;margin-top:8px}
+  .bullets{gap:10px}
+  .bullets li{font-size:16px}
+  .rulebox{padding:16px 20px;margin-top:20px}
+  .rulebox .kanjibig{font-size:34px}
+  .steps{margin-top:20px}
+  .step{padding:8px 0}
+  .step .no{min-width:26px;height:26px;font-size:13px}
+  .step .body{font-size:14.5px}
+  .pipeline{margin-top:20px}
+  .pipeline .tile{width:80px;height:72px}
+  .pipeline .link{margin-top:35px}
+  .pipeline .node{width:140px}
+  .pipeline-caption{margin-top:18px;font-size:15px}
+  .acts .act{padding:16px 14px;gap:8px}
+  .acts h3{font-size:16px}
+  .acts p{font-size:13px}
+  .dl{margin-top:18px;gap:8px 16px;font-size:14px}
+  .tablewrap{margin-top:18px}
+  th{padding:8px 14px}
+  td{padding:8px 14px;font-size:14px}
+  .tagline{font-size:17px;margin-top:22px}
+  .prizestrip{margin-top:20px}
+}
 @media (max-width:1020px){
   .cols3,.acts{grid-template-columns:1fr 1fr;display:grid}
   .acts{display:grid}
