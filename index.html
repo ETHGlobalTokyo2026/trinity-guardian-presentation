@@ -282,7 +282,27 @@ td .soft{color:var(--ink-3)}
     <div class="slide-num">01</div>
   </section>
 
-  <!-- 2 · PROBLEM -->
+  <!-- 2 · THE SHIFT -->
+  <section class="slide" aria-label="The shift to the agent economy">
+    <div class="eyebrow anim" style="--i:0">The shift <span class="jp">移行</span></div>
+    <h2 class="anim" style="--i:1">Humans now run much of their lives through AI agents — including the buying.</h2>
+    <div class="steps anim" style="--i:2">
+      <div class="step"><div class="no">人</div><div class="body"><b>You — the owner.</b> You set the intent and the budget. Nothing else.<span class="why">more of daily work delegated to AI every year</span></div></div>
+      <div class="step"><div class="no">AI</div><div class="body"><b>Buyer agents act for you, unattended.</b> Research, bookings, operations — around the clock.<span class="why">autonomous · always on · holds your keys</span></div></div>
+      <div class="step"><div class="no">商</div><div class="body"><b>Seller agents price their services per call.</b> Goods, data, compute — anyone can buy, machine-to-machine.<span class="why">x402 · 402 Payment Required · metered APIs</span></div></div>
+      <div class="step"><div class="no">買</div><div class="body"><b>The purchase closes with no human in the loop.</b> Agent pays agent, in seconds.<span class="why">the agent economy — already running</span></div></div>
+    </div>
+    <div class="rulebox anim" style="--i:3">
+      <div class="kanjibig" aria-hidden="true">経済</div>
+      <div>
+        <p>For the agent economy to be safe — and for agentic payments to be adopted — every payment needs a guardian.</p>
+        <p class="sub">adoption follows trust · trust needs guards</p>
+      </div>
+    </div>
+    <div class="slide-num">02</div>
+  </section>
+
+  <!-- 3 · PROBLEM -->
   <section class="slide" aria-label="Problem">
     <div class="eyebrow anim" style="--i:0">The problem <span class="jp">問題</span></div>
     <h2 class="anim" style="--i:1">x402 made agent payments one line of code. Nobody gave the wallet a conscience.</h2>
@@ -298,10 +318,10 @@ td .soft{color:var(--ink-3)}
         <p class="sub">rights on-chain · screening at the edge · a human on the phone</p>
       </div>
     </div>
-    <div class="slide-num">02</div>
+    <div class="slide-num">03</div>
   </section>
 
-  <!-- 3 · CONCEPT -->
+  <!-- 4 · CONCEPT -->
   <section class="slide" aria-label="Concept">
     <div class="eyebrow anim" style="--i:0">The concept <span class="jp">三層</span></div>
     <h2 class="anim" style="--i:1">Three gates, in order. None can overrule another.</h2>
@@ -334,10 +354,10 @@ td .soft{color:var(--ink-3)}
         <p>Risky or over-cap payments <b>stop and wait for the owner's phone</b>. A real World ID verification — approve with a bound, or deny and log why. A meaningful action, not a login screen.</p>
       </div>
     </div>
-    <div class="slide-num">03</div>
+    <div class="slide-num">04</div>
   </section>
 
-  <!-- 4 · FLOW -->
+  <!-- 5 · FLOW -->
   <section class="slide" aria-label="Flow">
     <div class="eyebrow anim" style="--i:0">The flow <span class="jp">流れ</span></div>
     <h2 class="anim" style="--i:1">Every payment runs the gates in order — before the signature exists.</h2>
@@ -379,10 +399,10 @@ td .soft{color:var(--ink-3)}
       </div>
     </div>
     <div class="pipeline-caption anim" style="--i:3">If any layer says no, the money does not move. <span class="jp">どの層も他を上書きできない</span></div>
-    <div class="slide-num">04</div>
+    <div class="slide-num">05</div>
   </section>
 
-  <!-- 5 · LAYER 1 -->
+  <!-- 6 · LAYER 1 -->
   <section class="slide" aria-label="Layer 1 ENS">
     <div class="eyebrow anim" style="--i:0">Layer 1 · 一 <span class="jp">門</span></div>
     <h2 class="anim" style="--i:1">ENS — the mandate lives on-chain, read live before every signature.</h2>
@@ -403,10 +423,10 @@ td .soft{color:var(--ink-3)}
       <dt>when</dt><dd>Guardian re-reads the role via <code>eth_call</code> immediately before signing — never cached, never trusted</dd>
       <dt>why it matters</dt><dd>Middleware can be hacked, the runtime can be hijacked — the gate still refuses. <b>Central, not cosmetic.</b></dd>
     </dl>
-    <div class="slide-num">05</div>
+    <div class="slide-num">06</div>
   </section>
 
-  <!-- 6 · LAYER 2 -->
+  <!-- 7 · LAYER 2 -->
   <section class="slide" aria-label="Layer 2 Intercepta">
     <div class="eyebrow anim" style="--i:0">Layer 2 · 二 <span class="jp">関所</span></div>
     <h2 class="anim" style="--i:1">Intercepta — the checkpoint screens every payment, live.</h2>
@@ -425,10 +445,10 @@ td .soft{color:var(--ink-3)}
         <div><p>Red or over cap → the payment stops. Reason on screen; over-cap escalates to Layer 3.</p></div>
       </div>
     </div>
-    <div class="slide-num">06</div>
+    <div class="slide-num">07</div>
   </section>
 
-  <!-- 7 · LAYER 3 -->
+  <!-- 8 · LAYER 3 -->
   <section class="slide" aria-label="Layer 3 World ID">
     <div class="eyebrow anim" style="--i:0">Layer 3 · 三 <span class="jp">人</span></div>
     <h2 class="anim" style="--i:1">World ID — when it matters, a human decides.</h2>
@@ -444,10 +464,10 @@ td .soft{color:var(--ink-3)}
         <p class="sub">World ID for Agents · sandbox.auth.world.org · the denied path is a headline demo, not an edge case</p>
       </div>
     </div>
-    <div class="slide-num">07</div>
+    <div class="slide-num">08</div>
   </section>
 
-  <!-- 8 · DEMO MAP -->
+  <!-- 9 · DEMO MAP -->
   <section class="slide" aria-label="Demo map">
     <div class="eyebrow anim" style="--i:0">The demo <span class="jp">実演</span></div>
     <h2 class="anim" style="--i:1">Five acts, one dashboard. Same button — different world state.</h2>
@@ -484,10 +504,10 @@ td .soft{color:var(--ink-3)}
       </div>
     </div>
     <p class="meta anim" style="--i:7">live dashboard → trinity-guardian-ui.vercel.app · payments on testnet · screening on mainnet</p>
-    <div class="slide-num">08</div>
+    <div class="slide-num">09</div>
   </section>
 
-  <!-- 9 · ACT 1 -->
+  <!-- 10 · ACT 1 -->
   <section class="slide" aria-label="Act 1 clean pay">
     <div class="eyebrow anim" style="--i:0">Demo · Act 1 / 5 <span class="jp">順路</span></div>
     <div class="demometa anim" style="--i:1">
@@ -536,10 +556,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">3</div><div class="body"><b>L2:</b> Intercepta screens payTo + token + auth — green. $0.50 &lt; perTxMax 5 · day total 12.40 &lt; dailyCap 50.<span class="why">quick-scan-address · scan-token · scan-message</span></div></div>
       <div class="step result ok"><div class="body"><div><b>Auto-sign.</b> No human was asked — the guards were enough.</div><span class="stamp sm c-allow" role="img" aria-label="Paid"><span class="en">PAID</span><span class="kanji" aria-hidden="true">済</span></span></div></div>
     </div>
-    <div class="slide-num">09</div>
+    <div class="slide-num">10</div>
   </section>
 
-  <!-- 10 · ACT 2 -->
+  <!-- 11 · ACT 2 -->
   <section class="slide" aria-label="Act 2 flagged counterparty">
     <div class="eyebrow anim" style="--i:0">Demo · Act 2 / 5 <span class="jp">検閲</span></div>
     <div class="demometa anim" style="--i:1">
@@ -586,10 +606,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">2</div><div class="body"><b>Hard fail — the Guardian refuses it itself.</b> No override, no human asked: a red verdict outranks every other layer.<span class="why">hard fail → refuse + log · soft fail (allowlist / no verdict) would ask a human</span></div></div>
       <div class="step result no"><div class="body"><div><b>REFUSED.</b> Reason logged. The agent moves on — the money didn't.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
-    <div class="slide-num">10</div>
+    <div class="slide-num">11</div>
   </section>
 
-  <!-- 11 · ACT 3 -->
+  <!-- 12 · ACT 3 -->
   <section class="slide" aria-label="Act 3 over per-tx max">
     <div class="eyebrow anim" style="--i:0">Demo · Act 3 / 5 <span class="jp">上限</span></div>
     <div class="demometa anim" style="--i:1">
@@ -638,10 +658,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">3</div><div class="body">Owner <b>approves this payment only</b> — a bounded exception. Deny is equally first-class, with a reason.<span class="why">approve with bound · both outcomes logged</span></div></div>
       <div class="step result hm"><div class="body"><div><b>PAID, once.</b> Tomorrow the caps are 5 and 50 again — nobody edited anything.</div><span class="stamp sm c-hold" role="img" aria-label="Approved once"><span class="en">APPROVED</span><span class="kanji" aria-hidden="true">保留→済</span></span></div></div>
     </div>
-    <div class="slide-num">11</div>
+    <div class="slide-num">12</div>
   </section>
 
-  <!-- 12 · ACT 4 -->
+  <!-- 13 · ACT 4 -->
   <section class="slide" aria-label="Act 4 lookalike token">
     <div class="eyebrow anim" style="--i:0">Demo · Act 4 / 5 <span class="jp">偽トークン</span></div>
     <div class="demometa anim" style="--i:1">
@@ -688,10 +708,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">2</div><div class="body"><b>Asset check fails at Layer 2</b>; scan-token confirms the imposter. Hard stop.<span class="why">asset ≠ com.payguard.asset · Intercepta scan-token</span></div></div>
       <div class="step result no"><div class="body"><div><b>REFUSED.</b> No signature ever exists for a fake coin.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
-    <div class="slide-num">12</div>
+    <div class="slide-num">13</div>
   </section>
 
-  <!-- 13 · ACT 5 -->
+  <!-- 14 · ACT 5 -->
   <section class="slide" aria-label="Act 5 kill switch">
     <div class="eyebrow anim" style="--i:0">Demo · Act 5 / 5 <span class="jp">遮断</span></div>
     <div class="demometa anim" style="--i:1">
@@ -738,10 +758,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">2</div><div class="body">Next payment: L1 reads the chain — role gone. <b>Refusal happens before any screening or approval exists.</b><span class="why">L2 / L3 dashed — never ran</span></div></div>
       <div class="step result no"><div class="body"><div><b>The identity layer closed the gate.</b> No green verdict can open it — only the owner can, by restoring the role.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
-    <div class="slide-num">13</div>
+    <div class="slide-num">14</div>
   </section>
 
-  <!-- 14 · STACK -->
+  <!-- 15 · STACK -->
   <section class="slide" aria-label="Stack">
     <div class="eyebrow anim" style="--i:0">Under the hood <span class="jp">構成</span></div>
     <h2 class="anim" style="--i:1">Boring where it can be, on-chain where it must be.</h2>
@@ -759,10 +779,10 @@ td .soft{color:var(--ink-3)}
       </table>
     </div>
     <p class="meta anim" style="--i:3">Curvegrid bonus: "spending limits, approved counterparties, required human approvals" — all three, on-chain instead of a config file.</p>
-    <div class="slide-num">14</div>
+    <div class="slide-num">15</div>
   </section>
 
-  <!-- 15 · CLOSING -->
+  <!-- 16 · CLOSING -->
   <section class="slide" aria-label="Closing">
     <div class="closing">
       <span class="anim stamp xl c-deny" style="--i:0" role="img" aria-label="Trinity Guardian seal"><span class="en">TG</span><span class="kanji" aria-hidden="true">護衛</span></span>
@@ -774,7 +794,7 @@ td .soft{color:var(--ink-3)}
         <span style="font-family:var(--font-mono);font-size:14px;padding:9px 0;color:var(--ink-3)">momo.agents.trinityguard.eth</span>
       </div>
     </div>
-    <div class="slide-num">15</div>
+    <div class="slide-num">16</div>
   </section>
 
 <footer class="hud" aria-label="Deck controls">
