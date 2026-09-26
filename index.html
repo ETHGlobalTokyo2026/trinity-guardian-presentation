@@ -320,7 +320,7 @@ td .soft{color:var(--ink-3)}
         <div class="layer">Layer 1 · 一</div>
         <h3>ENS</h3>
         <div class="jp">the gate — 門</div>
-        <p>The <b>right to pay</b> lives on-chain. An EAC <code style="font-family:var(--font-mono);font-size:13px">spend</code> role on the agent's own subname <i>momo.payguard.eth</i>. No role — no signature, ever. Revoking it is a kill switch the agent cannot argue with.</p>
+        <p>The <b>right to pay</b> lives on-chain. A <code style="font-family:var(--font-mono);font-size:13px">spend</code> role on the agent's own name under <i>agents.trinityguard.eth</i>. No role — no signature, ever. Revoking it is a kill switch the agent cannot argue with.</p>
       </div>
       <div class="card l2 anim" style="--i:3">
         <svg class="gate-glyph glyph" width="44" height="40" viewBox="0 0 48 44" aria-hidden="true">
@@ -399,13 +399,14 @@ td .soft{color:var(--ink-3)}
         <tbody>
           <tr><td><b>Right to pay</b> (binary)</td><td class="mono">EAC role "spend"</td><td>Role present → may sign · revoked → <b>kill switch</b>, refusal is physical</td></tr>
           <tr><td><b>Numbers</b></td><td class="mono">ENS text records</td><td class="mono">com.payguard.perTxMax = "5" · dailyCap = "50"</td></tr>
+          <tr><td><b>Agent names</b></td><td class="mono">labels under agents.trinityguard.eth</td><td><b>momo</b> — guarded · <b>rogue</b> — role revoked (kill switch demo)</td></tr>
           <tr><td><b>Counterparties</b></td><td class="mono">ENSIP-26 agent records</td><td>Named payTo with records = trusted · bare address = risk flag</td></tr>
           <tr><td><b>Expiry</b></td><td class="mono">expiring subname</td><td>Mandate expires on its own — no one needs to remember to revoke</td></tr>
         </tbody>
       </table>
     </div>
     <dl class="dl anim" style="--i:3">
-      <dt>who</dt><dd>subname <code>momo.payguard.eth</code> on <b>ENSv2 · Sepolia</b> — Permissioned Registry, Resolver, EAC, wildcard resolution</dd>
+      <dt>who</dt><dd>namespace <code>agents.trinityguard.eth</code> on <b>ENSv2 · Sepolia</b> — Permissioned Registry, Resolver, EAC, wildcard resolution · agents: <code>momo</code> <code>rogue</code> <code>shopping</code> <code>research</code> <code>travel</code></dd>
       <dt>when</dt><dd>Guardian re-reads the role via <code>eth_call</code> immediately before signing — never cached, never trusted</dd>
       <dt>why it matters</dt><dd>Middleware can be hacked, the runtime can be hijacked — the gate still refuses. <b>Central, not cosmetic.</b></dd>
     </dl>
@@ -538,7 +539,7 @@ td .soft{color:var(--ink-3)}
     </div>
     <div class="steps anim" style="--i:3">
       <div class="step"><div class="no">1</div><div class="body">Agent calls the x402 endpoint — server answers <b>402 Payment Required</b> with price and payTo.<span class="why">TS runtime · x402-fetch</span></div></div>
-      <div class="step"><div class="no">2</div><div class="body"><b>L1:</b> eth_call reads the EAC — spend role on <i>momo.payguard.eth</i> is active. Gate open.<span class="why">ENSv2 · Sepolia · read live, never cached</span></div></div>
+      <div class="step"><div class="no">2</div><div class="body"><b>L1:</b> eth_call reads the EAC — spend role on <i>momo.agents.trinityguard.eth</i> is active. Gate open.<span class="why">ENSv2 · Sepolia · read live, never cached</span></div></div>
       <div class="step"><div class="no">3</div><div class="body"><b>L2:</b> Intercepta screens payTo + token + auth — green. $0.50 &lt; perTxMax 5 · day total 12.40 &lt; dailyCap 50.<span class="why">quick-scan-address · scan-token · scan-message</span></div></div>
       <div class="step result ok"><div class="body"><div><b>Auto-sign.</b> No human was asked — the guards were enough.</div><span class="stamp sm c-allow" role="img" aria-label="Paid"><span class="en">PAID</span><span class="kanji" aria-hidden="true">済</span></span></div></div>
     </div>
@@ -740,7 +741,7 @@ td .soft{color:var(--ink-3)}
       </div>
     </div>
     <div class="steps anim" style="--i:3">
-      <div class="step"><div class="no">1</div><div class="body">Minutes before, the owner <b>revoked the "spend" role on-chain</b> — one transaction on Sepolia.<span class="why">EAC revoke · momo.payguard.eth</span></div></div>
+      <div class="step"><div class="no">1</div><div class="body">This run's agent is <b>rogue</b> — the owner revoked its spend role on-chain, one transaction on Sepolia.<span class="why">EAC revoke · rogue.agents.trinityguard.eth</span></div></div>
       <div class="step"><div class="no">2</div><div class="body">Next payment: L1 reads the chain — role gone. <b>Refusal happens before any screening or approval exists.</b><span class="why">L2 / L3 dashed — never ran</span></div></div>
       <div class="step result no"><div class="body"><div><b>The identity layer closed the gate.</b> No green verdict can open it — only the owner can, by restoring the role.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
@@ -777,7 +778,7 @@ td .soft{color:var(--ink-3)}
       <div class="links anim" style="--i:3">
         <a href="https://trinity-guardian.onrender.com/" target="_blank" rel="noopener">live dashboard ↗</a>
         <a href="https://github.com/ETHGlobalTokyo2026/trinity-guardian-presentation" target="_blank" rel="noopener">this deck ↗</a>
-        <span style="font-family:var(--font-mono);font-size:14px;padding:9px 0;color:var(--ink-3)">momo.payguard.eth</span>
+        <span style="font-family:var(--font-mono);font-size:14px;padding:9px 0;color:var(--ink-3)">momo.agents.trinityguard.eth</span>
       </div>
     </div>
     <div class="slide-num">15</div>
