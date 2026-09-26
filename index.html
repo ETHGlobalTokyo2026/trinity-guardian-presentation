@@ -182,8 +182,8 @@ td .soft{color:var(--ink-3)}
 .bullets li{list-style:none;display:flex;gap:14px;font-size:18px;line-height:1.6;color:var(--ink-2)}
 .bullets li::before{content:"—";color:var(--guard);font-weight:700}
 .bullets li b{color:var(--ink);font-weight:700}
-.acts{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:36px}
-.acts .act{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:22px 20px;display:flex;flex-direction:column;gap:12px}
+.acts{display:grid;grid-template-columns:repeat(5,1fr);gap:16px;margin-top:36px}
+.acts .act{background:var(--sheet);border:1px solid var(--line);border-radius:14px;padding:18px 16px;display:flex;flex-direction:column;gap:10px}
 .acts .no{font-family:var(--font-mono);font-size:30px;font-weight:600;color:var(--ink-3)}
 .acts h3{font-size:18px;font-weight:700;line-height:1.3}
 .acts p{font-size:14px;line-height:1.6;color:var(--ink-2)}
@@ -456,40 +456,46 @@ td .soft{color:var(--ink-3)}
   <!-- 8 · DEMO MAP -->
   <section class="slide" aria-label="Demo map">
     <div class="eyebrow anim" style="--i:0">The demo <span class="jp">実演</span></div>
-    <h2 class="anim" style="--i:1">Four acts, one dashboard. Same button — different world state.</h2>
+    <h2 class="anim" style="--i:1">Five acts, one dashboard. Same button — different world state.</h2>
     <div class="acts">
       <div class="act anim" style="--i:2">
         <div class="no">01</div>
         <h3>Clean pay</h3>
-        <p>Role active, verdict green, under caps — the machine pays alone.</p>
+        <p>Allowlisted API, verdict green, under caps — auto-sign.</p>
         <div class="chipline"><span class="chip pass">✓ pays</span></div>
       </div>
       <div class="act anim" style="--i:3">
         <div class="no">02</div>
-        <h3>Bad counterparty</h3>
-        <p>payTo flagged by Intercepta. Owner's phone says no.</p>
+        <h3>Flagged payTo</h3>
+        <p>Mainnet scam flag → hard stop. No override, no human.</p>
         <div class="chipline"><span class="chip fail">✕ blocked · verdict</span></div>
       </div>
       <div class="act anim" style="--i:4">
         <div class="no">03</div>
-        <h3>Over cap</h3>
-        <p>Past the daily cap. Owner approves once, bounded.</p>
+        <h3>Over per-tx max</h3>
+        <p>$8 vs the 5 USDC per-tx mandate → the owner decides.</p>
         <div class="chipline"><span class="chip hold">! asks owner</span></div>
       </div>
       <div class="act anim" style="--i:5">
         <div class="no">04</div>
+        <h3>Lookalike token</h3>
+        <p>Wrong asset — not policy USDC. Asset check + scan-token stop it.</p>
+        <div class="chipline"><span class="chip fail">✕ blocked · asset</span></div>
+      </div>
+      <div class="act anim" style="--i:6">
+        <div class="no">05</div>
         <h3>Kill switch</h3>
         <p>Everything green — but the spend role is already revoked.</p>
         <div class="chipline"><span class="chip fail">✕ blocked · identity</span></div>
       </div>
     </div>
-    <p class="meta anim" style="--i:6">live dashboard → trinity-guardian-ui.vercel.app · payments on testnet · screening on mainnet</p>
+    <p class="meta anim" style="--i:7">live dashboard → trinity-guardian-ui.vercel.app · payments on testnet · screening on mainnet</p>
     <div class="slide-num">08</div>
   </section>
 
   <!-- 9 · ACT 1 -->
   <section class="slide" aria-label="Act 1 clean pay">
-    <div class="eyebrow anim" style="--i:0">Demo · Act 1 / 4 <span class="jp">順路</span></div>
+    <div class="eyebrow anim" style="--i:0">Demo · Act 1 / 5 <span class="jp">順路</span></div>
     <div class="demometa anim" style="--i:1">
       <h2>Clean pay — the happy path is fully autonomous.</h2>
       <span class="chip pass">✓ pays</span>
@@ -540,13 +546,13 @@ td .soft{color:var(--ink-3)}
   </section>
 
   <!-- 10 · ACT 2 -->
-  <section class="slide" aria-label="Act 2 bad counterparty">
-    <div class="eyebrow anim" style="--i:0">Demo · Act 2 / 4 <span class="jp">怪しい相手</span></div>
+  <section class="slide" aria-label="Act 2 flagged counterparty">
+    <div class="eyebrow anim" style="--i:0">Demo · Act 2 / 5 <span class="jp">検閲</span></div>
     <div class="demometa anim" style="--i:1">
-      <h2>Bad counterparty — the checkpoint turns red, a human closes it.</h2>
+      <h2>Flagged counterparty — a red verdict is a hard stop.</h2>
       <span class="chip fail">✕ blocked · verdict</span>
     </div>
-    <div class="pipeline anim" style="--i:2" role="img" aria-label="Pipeline: ENS pass, Intercepta fail, World ID hold, refused">
+    <div class="pipeline anim" style="--i:2" role="img" aria-label="Pipeline: ENS pass, Intercepta fail red verdict, World ID never ran, refused">
       <div class="node pass">
         <div class="tile"><span class="t-en">x402</span></div>
         <div class="name">Quote</div>
@@ -566,15 +572,15 @@ td .soft{color:var(--ink-3)}
       <div class="node fail">
         <div class="tile"><span class="t-en">SCAN</span></div>
         <div class="name">L2 · Intercepta</div>
-        <div class="sub">✕ flagged: scam cluster</div>
+        <div class="sub">✕ scam flag on mainnet</div>
       </div>
-      <div class="link stop"></div>
-      <div class="node hold">
-        <div class="tile"><span class="t-en">HUMAN</span></div>
+      <div class="link"></div>
+      <div class="node">
+        <div class="tile"><span class="t-en">–</span><span class="t-jp">未実施</span></div>
         <div class="name">L3 · World ID</div>
-        <div class="sub">! owner asked → ✕ denied</div>
+        <div class="sub">– never ran</div>
       </div>
-      <div class="link stop"></div>
+      <div class="link"></div>
       <div class="node">
         <div class="tile" style="border:none;background:transparent">
           <span class="stamp md c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span>
@@ -582,26 +588,25 @@ td .soft{color:var(--ink-3)}
       </div>
     </div>
     <div class="steps anim" style="--i:3">
-      <div class="step"><div class="no">1</div><div class="body">payTo resolves to an address Intercepta <b>flags — scam cluster, zero history</b>.<span class="why">mainnet address list · verdict + reason on the dashboard</span></div></div>
-      <div class="step"><div class="no">2</div><div class="body"><b>L2 fails the payment.</b> It does not auto-refuse a soft fail — it escalates: World ID request fires to the owner's phone.<span class="why">soft fail → human · hard fail → refuse + log</span></div></div>
-      <div class="step"><div class="no">3</div><div class="body">Owner opens World App, sees <b>who wants to pay whom, how much, and why it was held</b> — taps deny.<span class="why">request → verify → validated → deny</span></div></div>
+      <div class="step"><div class="no">1</div><div class="body">The endpoint is new — and its payTo carries a <b>scam flag on mainnet</b>. Intercepta verdict: red, reason on screen.<span class="why">quick-scan-address · mainnet list, even while payment runs testnet</span></div></div>
+      <div class="step"><div class="no">2</div><div class="body"><b>Hard fail — the Guardian refuses it itself.</b> No override, no human asked: a red verdict outranks every other layer.<span class="why">hard fail → refuse + log · soft fail (allowlist / no verdict) would ask a human</span></div></div>
       <div class="step result no"><div class="body"><div><b>REFUSED.</b> Reason logged. The agent moves on — the money didn't.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
     <div class="slide-num">10</div>
   </section>
 
   <!-- 11 · ACT 3 -->
-  <section class="slide" aria-label="Act 3 over cap">
-    <div class="eyebrow anim" style="--i:0">Demo · Act 3 / 4 <span class="jp">上限</span></div>
+  <section class="slide" aria-label="Act 3 over per-tx max">
+    <div class="eyebrow anim" style="--i:0">Demo · Act 3 / 5 <span class="jp">上限</span></div>
     <div class="demometa anim" style="--i:1">
-      <h2>Over cap — the owner can bend the rule, once, knowingly.</h2>
+      <h2>Over the per-tx max — the owner decides, once.</h2>
       <span class="chip hold">! asks owner</span>
     </div>
-    <div class="pipeline anim" style="--i:2" role="img" aria-label="Pipeline: ENS pass, Intercepta soft hold over cap, World ID approve, paid bounded">
+    <div class="pipeline anim" style="--i:2" role="img" aria-label="Pipeline: ENS pass, Intercepta hold over per-tx max, World ID approve, paid bounded">
       <div class="node pass">
         <div class="tile"><span class="t-en">x402</span></div>
         <div class="name">Quote</div>
-        <div class="sub">$8 · data batch</div>
+        <div class="sub">$8 · bulk data</div>
       </div>
       <div class="link pass"></div>
       <div class="node pass">
@@ -617,13 +622,13 @@ td .soft{color:var(--ink-3)}
       <div class="node hold">
         <div class="tile"><span class="t-en">SCAN</span></div>
         <div class="name">L2 · Intercepta</div>
-        <div class="sub">! green verdict · over cap</div>
+        <div class="sub">! green verdict · $8 &gt; 5 per-tx</div>
       </div>
       <div class="link pass"></div>
       <div class="node pass">
         <div class="tile"><span class="t-en">HUMAN</span></div>
         <div class="name">L3 · World ID</div>
-        <div class="sub">✓ approved, bounded</div>
+        <div class="sub">✓ approved, once</div>
       </div>
       <div class="link pass"></div>
       <div class="node">
@@ -634,17 +639,67 @@ td .soft{color:var(--ink-3)}
       </div>
     </div>
     <div class="steps anim" style="--i:3">
-      <div class="step"><div class="no">1</div><div class="body">$8 request arrives with the day already at <b>$46.20 of the $50 daily cap</b>.<span class="why">perTxMax 5 · dailyCap 50 — from on-chain text records</span></div></div>
-      <div class="step"><div class="no">2</div><div class="body"><b>L2 soft-fails:</b> counterparty is clean, but the numbers don't fit. Escalate — don't guess.<span class="why">soft fail → World ID · the meter crosses 90%</span></div></div>
-      <div class="step"><div class="no">3</div><div class="body">Owner verifies, sees the cap math, <b>approves exactly this payment</b> — a bounded exception, not a raised ceiling.<span class="why">approve with cap · recorded in the run log</span></div></div>
-      <div class="step result hm"><div class="body"><div><b>PAID, bounded.</b> Tomorrow the cap is $50 again — nobody had to edit a config.</div><span class="stamp sm c-hold" role="img" aria-label="Approved once"><span class="en">APPROVED</span><span class="kanji" aria-hidden="true">保留→済</span></span></div></div>
+      <div class="step"><div class="no">1</div><div class="body">An <b>$8 bulk-data quote against the 5 USDC per-tx mandate</b> — with 47 of the 50 daily already spent. Both numbers say no.<span class="why">perTxMax 5 · dailyCap 50 — from on-chain text records, not a config</span></div></div>
+      <div class="step"><div class="no">2</div><div class="body"><b>Soft fail: pause.</b> World ID request goes to the owner's phone — QR, user code, countdown on the dashboard.<span class="why">ask-a-human rules: amount &gt; perTxMax · payTo not in allowlist · no verdict</span></div></div>
+      <div class="step"><div class="no">3</div><div class="body">Owner <b>approves this payment only</b> — a bounded exception. Deny is equally first-class, with a reason.<span class="why">approve with bound · both outcomes logged</span></div></div>
+      <div class="step result hm"><div class="body"><div><b>PAID, once.</b> Tomorrow the caps are 5 and 50 again — nobody edited anything.</div><span class="stamp sm c-hold" role="img" aria-label="Approved once"><span class="en">APPROVED</span><span class="kanji" aria-hidden="true">保留→済</span></span></div></div>
     </div>
     <div class="slide-num">11</div>
   </section>
 
   <!-- 12 · ACT 4 -->
-  <section class="slide" aria-label="Act 4 kill switch">
-    <div class="eyebrow anim" style="--i:0">Demo · Act 4 / 4 <span class="jp">遮断</span></div>
+  <section class="slide" aria-label="Act 4 lookalike token">
+    <div class="eyebrow anim" style="--i:0">Demo · Act 4 / 5 <span class="jp">偽トークン</span></div>
+    <div class="demometa anim" style="--i:1">
+      <h2>Lookalike token — the wrong asset never signs.</h2>
+      <span class="chip fail">✕ blocked · asset</span>
+    </div>
+    <div class="pipeline anim" style="--i:2" role="img" aria-label="Pipeline: ENS pass, Intercepta fail wrong asset, World ID never ran, refused">
+      <div class="node pass">
+        <div class="tile"><span class="t-en">x402</span></div>
+        <div class="name">Quote</div>
+        <div class="sub">$2 · wrong "USDC"</div>
+      </div>
+      <div class="link pass"></div>
+      <div class="node pass">
+        <div class="tile">
+          <svg class="gate-glyph" width="40" height="36" viewBox="0 0 48 44" aria-hidden="true">
+            <path d="M4 9 Q24 1 44 9"/><path d="M7 17 H41"/><path d="M11 17 V41"/><path d="M37 17 V41"/>
+          </svg>
+        </div>
+        <div class="name">L1 · ENS</div>
+        <div class="sub">✓ role active</div>
+      </div>
+      <div class="link stop"></div>
+      <div class="node fail">
+        <div class="tile"><span class="t-en">SCAN</span></div>
+        <div class="name">L2 · Intercepta</div>
+        <div class="sub">✕ not the policy asset</div>
+      </div>
+      <div class="link"></div>
+      <div class="node">
+        <div class="tile"><span class="t-en">–</span><span class="t-jp">未実施</span></div>
+        <div class="name">L3 · World ID</div>
+        <div class="sub">– never ran</div>
+      </div>
+      <div class="link"></div>
+      <div class="node">
+        <div class="tile" style="border:none;background:transparent">
+          <span class="stamp md c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span>
+        </div>
+      </div>
+    </div>
+    <div class="steps anim" style="--i:3">
+      <div class="step"><div class="no">1</div><div class="body">The seller asks to be paid in a "USDC" that <b>isn't the policy asset</b> — a lookalike.<span class="why">policy asset: USDC on Base Sepolia (eip155:84532)</span></div></div>
+      <div class="step"><div class="no">2</div><div class="body"><b>Asset check fails at Layer 2</b>; scan-token confirms the imposter. Hard stop.<span class="why">asset ≠ com.payguard.asset · Intercepta scan-token</span></div></div>
+      <div class="step result no"><div class="body"><div><b>REFUSED.</b> No signature ever exists for a fake coin.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
+    </div>
+    <div class="slide-num">12</div>
+  </section>
+
+  <!-- 13 · ACT 5 -->
+  <section class="slide" aria-label="Act 5 kill switch">
+    <div class="eyebrow anim" style="--i:0">Demo · Act 5 / 5 <span class="jp">遮断</span></div>
     <div class="demometa anim" style="--i:1">
       <h2>Kill switch — every check green. The gate is closed anyway.</h2>
       <span class="chip fail">✕ blocked · identity</span>
@@ -689,10 +744,10 @@ td .soft{color:var(--ink-3)}
       <div class="step"><div class="no">2</div><div class="body">Next payment: L1 reads the chain — role gone. <b>Refusal happens before any screening or approval exists.</b><span class="why">L2 / L3 dashed — never ran</span></div></div>
       <div class="step result no"><div class="body"><div><b>The identity layer closed the gate.</b> No green verdict can open it — only the owner can, by restoring the role.</div><span class="stamp sm c-deny" role="img" aria-label="Refused"><span class="en">REFUSED</span><span class="kanji" aria-hidden="true">否</span></span></div></div>
     </div>
-    <div class="slide-num">12</div>
+    <div class="slide-num">13</div>
   </section>
 
-  <!-- 13 · STACK -->
+  <!-- 14 · STACK -->
   <section class="slide" aria-label="Stack">
     <div class="eyebrow anim" style="--i:0">Under the hood <span class="jp">構成</span></div>
     <h2 class="anim" style="--i:1">Boring where it can be, on-chain where it must be.</h2>
@@ -710,10 +765,10 @@ td .soft{color:var(--ink-3)}
       </table>
     </div>
     <p class="meta anim" style="--i:3">Curvegrid bonus: "spending limits, approved counterparties, required human approvals" — all three, on-chain instead of a config file.</p>
-    <div class="slide-num">13</div>
+    <div class="slide-num">14</div>
   </section>
 
-  <!-- 14 · CLOSING -->
+  <!-- 15 · CLOSING -->
   <section class="slide" aria-label="Closing">
     <div class="closing">
       <span class="anim stamp xl c-deny" style="--i:0" role="img" aria-label="Trinity Guardian seal"><span class="en">TG</span><span class="kanji" aria-hidden="true">護衛</span></span>
@@ -725,10 +780,8 @@ td .soft{color:var(--ink-3)}
         <span style="font-family:var(--font-mono);font-size:14px;padding:9px 0;color:var(--ink-3)">momo.payguard.eth</span>
       </div>
     </div>
-    <div class="slide-num">14</div>
+    <div class="slide-num">15</div>
   </section>
-
-</div>
 
 <footer class="hud" aria-label="Deck controls">
   <div class="hud-left"><span class="seal" aria-hidden="true">TG</span> Trinity Guardian</div>
